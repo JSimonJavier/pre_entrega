@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Botines",
+    "description": "Adidas SpeedPortal .3",
+    "price": 34000,
+    "thumbnail": "url",
+    "code": "adidas201",
+    "stock": 25,
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Zapatillas",
+    "description": "Puma future 3.4",
+    "price": 55000,
+    "thumbnail": "url",
+    "code": "puma101",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "Botines",
+    "description": "Penalty",
+    "price": 11000,
+    "thumbnail": "url",
+    "code": "pen401",
+    "stock": 15,
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "Botines",
+    "description": "Umbro",
+    "price": 21000,
+    "thumbnail": "url",
+    "code": "umbro501",
+    "stock": 300,
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "Zapatillas",
+    "description": "Asics",
+    "price": 71000,
+    "thumbnail": "url",
+    "code": "asic501",
+    "stock": 5,
+    "status": true
+  },
+  {
+    "id": 7,
+    "title": "Remera",
+    "description": "Asics",
+    "price": 1000000000000000000,
+    "thumbnail": "url",
+    "code": "asic601",
+    "stock": 5,
+    "status": true
+  },
+  {
+    "id": 8,
+    "title": "Botines",
+    "description": "Adidas SpeedPortal .1 ",
+    "price": 34000,
+    "thumbnail": "url",
+    "code": "adidas202",
+    "stock": 25,
+    "status": true
+  },
+  {
+    "id": 9,
+    "title": "Botines",
+    "description": "Topper",
+    "price": 8500,
+    "thumbnail": "url",
+    "code": "top202",
+    "stock": 55,
+    "status": true
+  }
+]
