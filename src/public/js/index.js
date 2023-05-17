@@ -6,6 +6,7 @@ const inputPrice = document.getElementById("form-price");
 const inputCode = document.getElementById("form-code");
 const inputStock = document.getElementById("form-stock");
 const inputThumbnail = document.getElementById("form-thumbnail");
+const btnDelete = document.getElementById("btn-delete") 
 
 //escuchamos el servidor
 socket.on('products', (data) =>{
@@ -35,4 +36,10 @@ formProducts.addEventListener("submit", (e) => {
         stock: inputStock.value,
     };
     socket.emit('new-product', newProduct);
+})
+
+btnDelete.addEventListener('click', (e)=> {
+    e.preventDefault();
+
+    socket.emit('delete-product')
 })

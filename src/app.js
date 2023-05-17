@@ -9,6 +9,7 @@ import { Server } from "socket.io";
 import { realTimeProducts } from "./routes/realtimeproducts.socket.router.js";
 import { ProductManager } from "./manager.js";
 
+
 const products = new ProductManager('./products.json')
 const PORT = 8080
 const app = express()
@@ -21,28 +22,39 @@ const httpServer = app.listen(PORT, () => console.log(`Server on! Listening on h
 const socketServer = new Server(httpServer)
 socketServer.on('connection', (socket) => {
     console.log('Nuevo canal con ID: ' + socket.id);
-    
-    socket.on('new-product', async(newProd) =>{
-        try{
-            await products.addProduct({...newProd})
+
+    socket.on('new-product', async (newProd) => {
+        try {
+            await products.addProduct({ ...newProd })
 
             const productsList = await products.getProducts()
 
-            socketServer.emit('products', {productsList})
+            socketServer.emit('products', { productsList })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    })
+
+    socket.on('delete-product', async (productId) => {
+        try{
+            
         }
         catch(error){
             console.log(error);
         }
-    })
-  
-})
+        
+    });
+});
+
+
 
 //!__DIRNAME----------------------------->>
 app.use(express.static(path.join(__dirname, 'public'))); //para utilizar __dirname, no olvidarse de importar path
 
 //!handlebars------------------------------>>
 app.engine('handlebars', handlebars.engine())
-app.set('views', path.join(__dirname, 'views' ))
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'handlebars')
 
 //!routes res JSON ------------------------------->>
@@ -55,8 +67,8 @@ app.use("/products", productsHomeRouter)
 //! routes sockets ------------------------------------>>
 app.use("/realTimeProducts", realTimeProducts)
 
-app.get("/", (req, res) =>{
-    res.status(200).json({message:"Servidor corriendo..."})
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Servidor corriendo..." })
 })
 
 app.get("*", (req, res) => {
