@@ -7,24 +7,6 @@ const codigo = document.getElementById("form-code");
 const stock = document.getElementById("form-stock");
 const thumbnail = document.getElementById("form-thumbnail");
 
-//escuchamos el servidor
-// socket.on('products', (data) =>{
-//     renderProducts(data)
-// })
-
-// const renderProducts = async (products) => {
-//     try {
-        
-//         const response = await fetch("/realTimeProducts");
-//         const serverTemplate = await response.text();
-//         const template = Handlebars.compile(serverTemplate);
-//         const html = template({ products });
-//         document.getElementById("productList").innerHTML = html;
-       
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 socket.on('products', (products) => {
     const productList = document.querySelector('.productListUpdated')
