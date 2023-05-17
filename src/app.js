@@ -29,15 +29,21 @@ socketServer.on('connection', (socket) => {
 
             const productsList = await products.getProducts()
 
-            socketServer.emit('products', { productsList })
+            socketServer.emit('products', productsList)
         }
         catch (error) {
             console.log(error);
         }
     })
 
-    socket.on('delete-product', async (productId) => {
+    socket.on('delete-product', async (idProd) => {
         try{
+            
+            let id = parseInt(idProd)
+            await products.deleteProduct(id)
+            const productsList = await products.getProducts()
+
+            socketServer.emit('products', productsList)
             
         }
         catch(error){

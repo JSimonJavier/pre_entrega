@@ -1,45 +1,69 @@
 const socket = io()
-const formProducts = document.getElementById("form-products");
-const inputTitle = document.getElementById("form-title");
-const inputDescript = document.getElementById("form-description");
-const inputPrice = document.getElementById("form-price");
-const inputCode = document.getElementById("form-code");
-const inputStock = document.getElementById("form-stock");
-const inputThumbnail = document.getElementById("form-thumbnail");
-const btnDelete = document.getElementById("btn-delete") 
+const formulario = document.getElementById("form-products");
+const titulo = document.getElementById("form-title");
+const descripcion = document.getElementById("form-description");
+const precio = document.getElementById("form-price");
+const codigo = document.getElementById("form-code");
+const stock = document.getElementById("form-stock");
+const thumbnail = document.getElementById("form-thumbnail");
 
 //escuchamos el servidor
-socket.on('products', (data) =>{
-    renderProducts(data)
+// socket.on('products', (data) =>{
+//     renderProducts(data)
+// })
+
+// const renderProducts = async (products) => {
+//     try {
+        
+//         const response = await fetch("/realTimeProducts");
+//         const serverTemplate = await response.text();
+//         const template = Handlebars.compile(serverTemplate);
+//         const html = template({ products });
+//         document.getElementById("productList").innerHTML = html;
+       
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+socket.on('products', (products) => {
+    const productList = document.querySelector('.productListUpdated')
+    if(Array.isArray(products)){
+
+        productList.innerHTML = `
+        ${products.map((product) => `
+            <div class="card m-2" style="width: 18rem;">
+                <img src=${product.thumbnail} class="card-img-top" alt=${product.title}>
+                <div class="card-body">
+                    <h5 class="card-title">${product.title}</h5>
+                    <p class="card-text">${product.description}</p>
+                    <p class="card-text">${product.price}</p>
+                    <p class="card-text">${product.code}</p>
+                    <p class="card-text">${product.stock}</p>
+                    <button class="btn btn-danger d-grid gap-2 col-6 mx-auto" onclick="deleteProduct(${product.id})">Borrar</button>
+                </div>
+            </div>
+        `
+          ).join("")
+        }`
+    } else{
+        console.log('no es un array');
+    }
 })
 
-const renderProducts = async (products) => {
-    try {
-        const response = await fetch("/realTimeProducts");
-        const serverTemplate = await response.text();
-        const template = Handlebars.compile(serverTemplate);
-        const html = template({ products });
-        document.getElementById("productList").innerHTML = html;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-formProducts.addEventListener("submit", (e) => {
+formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     const newProduct = {
-        title: inputTitle.value,
-        description: inputDescript.value,
-        price: inputPrice.value,
-        thumbnail: inputThumbnail.value,
-        code: inputCode.value,
-        stock: inputStock.value,
+        title: titulo.value,
+        description: descripcion.value,
+        price: precio.value,
+        thumbnail: thumbnail.value,
+        code: codigo.value,
+        stock: stock.value,
     };
     socket.emit('new-product', newProduct);
 })
 
-btnDelete.addEventListener('click', (e)=> {
-    e.preventDefault();
-
-    socket.emit('delete-product')
-})
+deleteProduct = (id) => {
+    socket.emit('delete-product', id)
+}

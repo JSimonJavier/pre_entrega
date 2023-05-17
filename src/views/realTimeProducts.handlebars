@@ -1,7 +1,7 @@
 <div id="productList" class="container-fluid">
     <h1 class="bg-success p-2">Real time products</h1>
     
-    <div class="d-flex flex-wrap justify-content-around">
+    <div class="d-flex flex-wrap justify-content-around productListUpdated">
     {{#each products}}
         <div class="card m-2" style="width: 18rem;">
             <img src={{this.thumbnail}} class="card-img-top" alt={{this.title}}>
@@ -11,7 +11,7 @@
                 <p class="card-text">{{this.price}}</p>
                 <p class="card-text">{{this.code}}</p>
                 <p class="card-text">{{this.stock}}</p>
-                <button class="btn btn-danger d-grid gap-2 col-6 mx-auto" id="btn-delete">X</button>
+                <button class="btn btn-danger d-grid gap-2 col-6 mx-auto" id="btn-delete" onclick="deleteProduct({{this.id}})">Borrar</button>
             </div>
         </div>
     {{/each}}

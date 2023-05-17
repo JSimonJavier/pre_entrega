@@ -4,7 +4,7 @@
     "title": "Botines",
     "description": "Adidas SpeedPortal .3",
     "price": 34000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "adidas201",
     "stock": 25,
     "status": true
@@ -14,7 +14,7 @@
     "title": "Zapatillas",
     "description": "Puma future 3.4",
     "price": 55000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "puma101",
     "stock": 10,
     "status": true
@@ -24,7 +24,7 @@
     "title": "Botines",
     "description": "Penalty",
     "price": 11000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "pen401",
     "stock": 15,
     "status": true
@@ -34,7 +34,7 @@
     "title": "Botines",
     "description": "Umbro",
     "price": 21000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "umbro501",
     "stock": 300,
     "status": true
@@ -44,18 +44,8 @@
     "title": "Zapatillas",
     "description": "Asics",
     "price": 71000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "asic501",
-    "stock": 5,
-    "status": true
-  },
-  {
-    "id": 7,
-    "title": "Remera",
-    "description": "Asics",
-    "price": 1000000000000000000,
-    "thumbnail": "url",
-    "code": "asic601",
     "stock": 5,
     "status": true
   },
@@ -64,7 +54,7 @@
     "title": "Botines",
     "description": "Adidas SpeedPortal .1 ",
     "price": 34000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "adidas202",
     "stock": 25,
     "status": true
@@ -74,7 +64,7 @@
     "title": "Botines",
     "description": "Topper",
     "price": 8500,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "top202",
     "stock": 55,
     "status": true
@@ -84,7 +74,7 @@
     "title": "Pelota",
     "description": "pelota mundial",
     "price": 15000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "pelo2022",
     "stock": 24
   },
@@ -93,7 +83,7 @@
     "title": "Guantes",
     "description": "Guantes arquero dibu martinez",
     "price": 25000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "guan243",
     "stock": 23
   },
@@ -102,7 +92,7 @@
     "title": "Soga",
     "description": "soga para saltar la cuerda",
     "price": 2000,
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "sog200",
     "stock": 123
   },
@@ -111,7 +101,7 @@
     "title": "Medias",
     "description": "medias de futbol antideslizantes",
     "price": "4500",
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "med245",
     "stock": "14"
   },
@@ -120,71 +110,8 @@
     "title": "Remera adidas",
     "description": "remera para salir",
     "price": "45000",
-    "thumbnail": "url",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "rem234",
     "stock": "21"
-  },
-  {
-    "id": 15,
-    "title": "Remera",
-    "description": "remera para el verano",
-    "price": "24000",
-    "thumbnail": "url",
-    "code": "rem564",
-    "stock": "45"
-  },
-  {
-    "id": 16,
-    "title": "Patineta Pro",
-    "description": "para las mejores rampas",
-    "price": "60000",
-    "thumbnail": "url",
-    "code": "pat557",
-    "stock": "2"
-  },
-  {
-    "id": 17,
-    "title": "Musculosa Puma",
-    "description": "musculosa para el verano",
-    "price": "34000",
-    "thumbnail": "url",
-    "code": "mus800",
-    "stock": "45"
-  },
-  {
-    "id": 18,
-    "title": "Producto",
-    "description": "adasdasd",
-    "price": "131241",
-    "thumbnail": "url",
-    "code": "pr9523",
-    "stock": "234"
-  },
-  {
-    "id": 19,
-    "title": "dakljdklad",
-    "description": "perfecto para el frio",
-    "price": "21314",
-    "thumbnail": "url",
-    "code": "rw411",
-    "stock": "6"
-  },
-  {
-    "id": 20,
-    "title": "Camiseta",
-    "description": "adidas",
-    "price": "823901",
-    "thumbnail": "url",
-    "code": "cam222",
-    "stock": "123"
-  },
-  {
-    "id": 21,
-    "title": "Remera Argentina tres estrellas",
-    "description": "Argentina campeon",
-    "price": "30000",
-    "thumbnail": "url",
-    "code": "arg1812",
-    "stock": "1"
   }
 ]
