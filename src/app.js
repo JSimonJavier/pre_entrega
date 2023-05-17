@@ -21,7 +21,7 @@ const httpServer = app.listen(PORT, () => console.log(`Server on! Listening on h
 
 const socketServer = new Server(httpServer)
 socketServer.on('connection', (socket) => {
-    console.log('Nuevo canal con ID: ' + socket.id);
+    console.log('Nuevo cliente conectado: ' + socket.id);
 
     socket.on('new-product', async (newProd) => {
         try {
@@ -63,14 +63,10 @@ app.engine('handlebars', handlebars.engine())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'handlebars')
 
-//!routes res JSON ------------------------------->>
+//!routes------------------------------->>
 app.use("/api/products", productsRouter)
 app.use("/api/carts", cartRouter)
-
-//! routes handlebars html render------------------------>>
-app.use("/products", productsHomeRouter)
-
-//! routes sockets ------------------------------------>>
+app.use("/", productsHomeRouter)
 app.use("/realTimeProducts", realTimeProducts)
 
 app.get("/", (req, res) => {
