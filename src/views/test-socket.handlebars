@@ -1,0 +1,14 @@
+<div>
+{{#each pets}}
+    <ul>
+        <li>{{this.id}}</li>
+        <li>{{this.name}}</li>
+        <li>{{this.edad}}</li>
+    </ul>
+{{/each}}
+</div>
+
+{{!--! estos se van a encargar de lo bidireccional --}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+

@@ -5,7 +5,7 @@ export class ProductManager {
         this.path = path
     }
 
-    
+
     async addProduct(obj) {
         try {
             const data = await this.getProducts()
@@ -117,6 +117,7 @@ export class ProductManager {
     }
 }
 
+
 export class CartManger {
     constructor(path) {
         this.path = path
@@ -170,18 +171,18 @@ export class CartManger {
 
     async updatedCart(cartId, productId) {
         try {
-            const dataCarts = await this.getCarts()
-            const read = await fs.promises.readFile("./products.json", "utf-8");
-            const dataProducts = read ? JSON.parse(read) : [];
-            const cart = dataCarts.find(element => element.id == cartId)
+            const dataCarts = await this.getCarts() //llamamos al carrito
+            const read = await fs.promises.readFile("./products.json", "utf-8"); //llamamos a los productos que tenemos en json
+            const dataProducts = read ? JSON.parse(read) : []; //obtemos los producto como codigo gracias al parse
+            const cart = dataCarts.find(element => element.id == cartId) //al carrito que obtuve estoy buscando el mismo id que pido
             const productFound = {
-                id: dataProducts.find(ele => ele.id == productId).id
+                id: dataProducts.find(ele => ele.id == productId).id //estoy buscando los productos con el mismo id que pido
             }
-            
-            const cartProducts = cart.products
-            
-            if(cartProducts.find(ele => ele.id == productFound.id)){
-                productFound.quantity ++
+
+            const cartProducts = cart.products //me devuelve products: []
+
+            if (cartProducts.find(ele => ele.id == productFound.id)) { //si esta vacio no entra y sale del if y suma en cantidad 1 y lo pushe en el propiedad products, si tiene algo entra y suma esa cantidad en uno si el id es igual al de product
+                productFound.quantity++
                 cartProducts.find(ele => ele.id == productFound.id).quantity++
                 await fs.promises.writeFile(this.path, JSON.stringify(dataCarts, null, 2), "utf-8");
                 return cartProducts
@@ -189,6 +190,7 @@ export class CartManger {
 
             productFound.quantity = 1
             cart.products.push(productFound)
+
             await fs.promises.writeFile(this.path, JSON.stringify(dataCarts, null, 2), "utf-8");
 
         }

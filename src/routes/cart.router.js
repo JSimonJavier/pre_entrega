@@ -113,10 +113,31 @@ cartRouter.post('/:cid/products/:pid', async (req, res)=>{
     }
 })
 
+//!PRUEBA HANDLE-----------------------------------
+cartRouter.get('/:cid/test', async (req, res)=>{
+    try{
+        const get_carts = await carts.getCarts()
+        const id_cart = req.params.cid
+        const cart = get_carts.find(e => e.id == id_cart)
+        
+        if(!cart){
+            return res.status(400).json({
+                status: 'error',
+                message: 'No existe ese carrito'
+            })
+        }
 
-cartRouter.get("*", (req, res) => {
-    res.status(404).json({ 
-        status: "error",
-        msg: "Route not found",
-        data: {} })
+        if (cart.products.length < 1){
+            res.status(200).json({
+                status: 'success',
+                message: 'Carrito vacio, agrega productos en cart: ' + id_cart,
+                payload: cart.products
+            })
+        } else{
+            res.status(200).render('carts', cart)
+        }
+    }
+    catch(error){
+        res.status(500).json({ error: error.message })
+    }
 })

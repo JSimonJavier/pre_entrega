@@ -5,6 +5,8 @@ const products = new ProductManager('./products.json')
 
 export const productsRouter = express.Router()
 
+
+
 productsRouter.get('/', async (req, res) => {
     try {
         const data = await products.getProducts()
@@ -51,6 +53,7 @@ productsRouter.get('/:id', async (req, res) => {
 productsRouter.post('/', async (req, res) => {
     try {
         const data = await products.getProducts()
+    
         let new_product = req.body
         let code = data.find(e => e.code === new_product.code)
         if (code) {
@@ -120,9 +123,28 @@ productsRouter.delete('/:id', async (req, res) => {
     }
 })
 
-productsRouter.get("*", (req, res) => {
-    res.status(404).json({ 
-        status: "error",
-        msg: "Route not found",
-        data: {} })
+
+//!---PRUEBA SI FUNCIONA HANDLE-----------------------
+productsRouter.get('/:id/test', async (req, res) => {
+    try {
+        const id = parseInt(req.params.id)
+        const product_id = await products.getProductById(id)
+        if (!product_id) {
+            return res.status(404).json({ message: 'No se encontro el producto' })
+        }
+        return res.status(200).render('productsTest', product_id)
+    }
+
+    catch (error) {
+        res.status(500).json({ 
+            status: 'Error',
+            message: error.message
+         })
+    }
 })
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+<div id="productList" class="container-fluid">
+    <h1 class="bg-success p-2">Real time products</h1>
+    
+    <div class="d-flex flex-wrap justify-content-around">
+    {{#each products}}
+        <div class="card m-2" style="width: 18rem;">
+            <img src={{this.thumbnail}} class="card-img-top" alt={{this.title}}>
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}</p>
+                <p class="card-text">{{this.price}}</p>
+                <p class="card-text">{{this.code}}</p>
+                <p class="card-text">{{this.stock}}</p>
+                <button class="btn btn-danger d-grid gap-2 col-6 mx-auto" id="btn-delete">X</button>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+
+
+    {{!-- FORMULARIO --}}
+    <div class="col-md-6 mx-auto">
+        <h2 class="text-center my-4">Añadir Nuevo Producto</h2>
+        <form id="form-products" style="margin: auto">
+            <div style="margin-bottom: 16px">
+
+                <div class="col-md-auto mx-3">
+                    <label for="title"> Titulo: </label>
+                    <br />
+                    <input type="text" name="title" id="form-title" style="margin-bottom: 16px" class="form-control" />
+                </div>
+
+                <div class="col-md-auto mx-3">
+                    <label for="description"> Descripción: </label>
+                    <br />
+                    <input type="text" name="description" id="form-description" style="margin-bottom: 16px"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-auto mx-3">
+                    <label for="price"> Precio: </label>
+                    <br />
+                    <input type="number" name="price" id="form-price" style="margin-bottom: 16px" step="1"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-auto mx-3">
+                    <label for="code"> Codigo: </label>
+                    <br />
+                    <input type="text" name="code" id="form-code" style="margin-bottom: 16px" class="form-control" />
+                </div>
+
+                <div class="col-md-auto mx-3">
+                    <label for="stock"> Stock: </label>
+                    <br />
+                    <input type="number" name="stock" id="form-stock" style="margin-bottom: 16px" step="1"
+                        class="form-control" />
+                </div>
+
+                <div class="col-md-auto mx-3">
+                    <label for="thumbnail"> URL de la Imagen: </label>
+                    <br />
+                    <input type="text" name="thumbnail" id="form-thumbnail" style="margin-bottom: 16px"
+                        class="form-control" />
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center">
+                    <input type="submit" value="Agregar" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
