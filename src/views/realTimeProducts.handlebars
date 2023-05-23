@@ -1,5 +1,5 @@
 <div id="productList">
-    <h1 class="bg-success p-2">Real time products</h1>
+    <h1 class="bg-success p-2">Real time products - <button class="btn btn-warning"><a href="#form-products" class="text-decoration-none text-dark">Ir al Form</a> </button> </h1>
     
     <div class="d-flex flex-wrap justify-content-around productListUpdated">
     {{#each products}}
@@ -27,44 +27,44 @@
                 <div class="col-md-auto mx-3">
                     <label for="title"> Titulo: </label>
                     <br />
-                    <input type="text" name="title" id="form-title" style="margin-bottom: 16px" class="form-control" />
+                    <input type="text" name="title" id="form-title" style="margin-bottom: 16px" class="form-control" required/>
                 </div>
 
                 <div class="col-md-auto mx-3">
                     <label for="description"> Descripción: </label>
                     <br />
                     <input type="text" name="description" id="form-description" style="margin-bottom: 16px"
-                        class="form-control" />
+                        class="form-control" required/>
                 </div>
 
                 <div class="col-md-auto mx-3">
                     <label for="price"> Precio: </label>
                     <br />
                     <input type="number" name="price" id="form-price" style="margin-bottom: 16px" step="1"
-                        class="form-control" />
+                        class="form-control" required/>
                 </div>
 
                 <div class="col-md-auto mx-3">
                     <label for="code"> Codigo: </label>
                     <br />
-                    <input type="text" name="code" id="form-code" style="margin-bottom: 16px" class="form-control" />
+                    <input type="text" name="code" id="form-code" style="margin-bottom: 16px" class="form-control" required/>
                 </div>
 
                 <div class="col-md-auto mx-3">
                     <label for="stock"> Stock: </label>
                     <br />
                     <input type="number" name="stock" id="form-stock" style="margin-bottom: 16px" step="1"
-                        class="form-control" />
+                        class="form-control" required/>
                 </div>
 
                 <div class="col-md-auto mx-3">
                     <label for="thumbnail"> URL de la Imagen: </label>
                     <br />
                     <input type="text" name="thumbnail" id="form-thumbnail" style="margin-bottom: 16px"
-                        class="form-control" />
+                        class="form-control" required/>
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center">
-                    <input type="submit" value="Agregar" class="btn btn-success" />
+                    <input type="submit" value="Agregar" class="btn btn-success" required/>
                 </div>
             </div>
         </form>

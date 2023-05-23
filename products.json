@@ -104,14 +104,5 @@
     "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
     "code": "med245",
     "stock": "14"
-  },
-  {
-    "id": 14,
-    "title": "Medias Umbro",
-    "description": "medias cortadas para futbol",
-    "price": "150000",
-    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png",
-    "code": "umb123",
-    "stock": "123"
   }
 ]

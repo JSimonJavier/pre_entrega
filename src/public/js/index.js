@@ -7,12 +7,18 @@ const codigo = document.getElementById("form-code");
 const stock = document.getElementById("form-stock");
 const thumbnail = document.getElementById("form-thumbnail");
 
+socket.on('error', (err) => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: err.msg,
+      })
+})
 
 socket.on('products', (products) => {
     const productList = document.querySelector('.productListUpdated')
-    if(Array.isArray(products)){
 
-        productList.innerHTML = `
+    productList.innerHTML = `
         ${products.map((product) => `
             <div class="card m-2" style="width: 18rem;">
                 <img src=${product.thumbnail} class="card-img-top" alt=${product.title}>
@@ -26,11 +32,8 @@ socket.on('products', (products) => {
                 </div>
             </div>
         `
-          ).join("")
+    ).join("")
         }`
-    } else{
-        console.log('no es un array');
-    }
 })
 
 formulario.addEventListener("submit", (e) => {
@@ -43,6 +46,14 @@ formulario.addEventListener("submit", (e) => {
         code: codigo.value,
         stock: stock.value,
     };
+
+    titulo.value = ''
+    descripcion.value = ''
+    precio.value = ''
+    thumbnail.value = ''
+    codigo.value = ''
+    stock.value = ''
+
     socket.emit('new-product', newProduct);
 })
 

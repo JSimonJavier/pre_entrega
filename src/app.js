@@ -25,10 +25,15 @@ socketServer.on('connection', (socket) => {
 
     socket.on('new-product', async (newProd) => {
         try {
+            let productsList = await products.getProducts()
+            let code = productsList.find(e => e.code === newProd.code)
+            
+            if(code){
+                socketServer.emit('error', {msg: 'No se puede agregar porque tiene el mismo codigo'})
+            }
+
             await products.addProduct({ ...newProd })
-
-            const productsList = await products.getProducts()
-
+            productsList = await products.getProducts()
             socketServer.emit('products', productsList)
         }
         catch (error) {
